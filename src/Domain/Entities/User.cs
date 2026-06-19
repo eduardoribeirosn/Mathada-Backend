@@ -1,6 +1,6 @@
 namespace Marthada.Domain.Entities;
 
-public sealed class Users
+public sealed class User
 {
     public int IdUser { get; private set; }
     public string Name { get; private set; } = null!;
@@ -8,15 +8,15 @@ public sealed class Users
     public string PasswordHash { get; private set; } = null!;
     public DateTimeOffset CreatedAt { get; private set; }
 
-    private Users () { }
+    private User () { }
 
-    public static Users Create(string name, string email, string passwordHash)
+    public static User Create(string name, string email, string passwordHash)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(name);
         ArgumentException.ThrowIfNullOrWhiteSpace(email);
         ArgumentException.ThrowIfNullOrWhiteSpace(passwordHash);
 
-        var user = new Users
+        var user = new User
         {
             Name = name,
             Email = email,

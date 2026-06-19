@@ -1,16 +1,16 @@
 namespace Marthada.Domain.Entities;
 
-public sealed class Categories
+public sealed class Category
 {
     public int IdCategory { get; private set; }
     public string Name { get; private set; } = null!;
-    public ICollection<Products> Products { get; private set; } = null!;
+    public ICollection<Product> Products { get; private set; } = null!;
 
-    public static Categories Create(string name)
+    public static Category Create(string name)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(name);
 
-        var category = new Categories
+        var category = new Category
         {
             Name = name
         };

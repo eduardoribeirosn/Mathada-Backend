@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Marthada.Infrastructures.Data.Mappings;
 
-public sealed class CategoriesConfiguration : IEntityTypeConfiguration<Categories>
+public sealed class CategoryConfiguration : IEntityTypeConfiguration<Category>
 {
-    public void Configure(EntityTypeBuilder<Categories> builder)
+    public void Configure(EntityTypeBuilder<Category> builder)
     {
         builder.ToTable("Categories");
         builder.HasKey(c => c.IdCategory);

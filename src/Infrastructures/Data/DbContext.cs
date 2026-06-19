@@ -10,9 +10,9 @@ public class MarthadaDbContext : DbContext
         
     }
 
-    public DbSet<Users> Users { get; private set; }
-    public DbSet<Products> Products { get; private set; }
-    public DbSet<Categories> Categories { get; private set; }
+    public DbSet<User> Users { get; private set; }
+    public DbSet<Product> Products { get; private set; }
+    public DbSet<Category> Categories { get; private set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

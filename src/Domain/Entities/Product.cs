@@ -2,7 +2,7 @@ using System.Dynamic;
 
 namespace Marthada.Domain.Entities;
 
-public sealed class Products
+public sealed class Product
 {
     public int IdProduct { get; private set; }
     public string Name { get; private set; } = null!;
@@ -12,16 +12,16 @@ public sealed class Products
     public string Image { get; private set; } = null!;
     public bool IsActive { get; private set; }
     public bool PromotionalIsActive { get; private set; }
-    public Categories Categories { get; private set; } = null!;
+    public Category Category { get; private set; } = null!;
     public int FkCategory { get; private set; }
 
-    public static Products Create(string name, string description, decimal price, string image, int fkCategory, decimal promotionalPrice = 0)
+    public static Product Create(string name, string description, decimal price, string image, int fkCategory, decimal promotionalPrice = 0)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(name);
         ArgumentException.ThrowIfNullOrWhiteSpace(description);
         ArgumentException.ThrowIfNullOrWhiteSpace(image);
 
-        var product = new Products
+        var product = new Product
         {
             Name = name,
             Description = description,
