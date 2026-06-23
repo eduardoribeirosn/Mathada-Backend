@@ -1,5 +1,5 @@
 using Marthada.Domain.Entities;
-using Marthada.Domain.Interfaces;
+using Marthada.Domain.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace Marthada.Infrastructures.Data.Repositories;

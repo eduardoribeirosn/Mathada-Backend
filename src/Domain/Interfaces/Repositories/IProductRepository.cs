@@ -1,6 +1,6 @@
 using Marthada.Domain.Entities;
 
-namespace Marthada.Domain.Interfaces;
+namespace Marthada.Domain.Interfaces.Repositories;
 
 public interface IProductRepository
 {

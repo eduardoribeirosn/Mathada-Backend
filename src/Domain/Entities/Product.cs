@@ -36,7 +36,7 @@ public sealed class Product
         return product;
     }
 
-    public void Update(string name, string description, decimal price, string image, bool isActive, int fkCategory, decimal promotionalPrice = 0)
+    public void Update(string name, string description, decimal price, string image, int fkCategory, decimal promotionalPrice = 0)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(name);
         ArgumentException.ThrowIfNullOrWhiteSpace(description);
@@ -47,7 +47,6 @@ public sealed class Product
         Price = price;
         PromotionalPrice = promotionalPrice;
         Image = image;
-        IsActive = isActive;
         PromotionalIsActive = promotionalPrice != 0;
         FkCategory = fkCategory;
     }
