@@ -22,7 +22,7 @@ namespace Infrastructures.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("Marthada.Domain.Entities.Categories", b =>
+            modelBuilder.Entity("Marthada.Domain.Entities.Category", b =>
                 {
                     b.Property<int>("IdCategory")
                         .ValueGeneratedOnAdd()
@@ -43,7 +43,7 @@ namespace Infrastructures.Migrations
                     b.ToTable("Categories", (string)null);
                 });
 
-            modelBuilder.Entity("Marthada.Domain.Entities.Products", b =>
+            modelBuilder.Entity("Marthada.Domain.Entities.Product", b =>
                 {
                     b.Property<int>("IdProduct")
                         .ValueGeneratedOnAdd()
@@ -93,7 +93,7 @@ namespace Infrastructures.Migrations
                     b.ToTable("Products", (string)null);
                 });
 
-            modelBuilder.Entity("Marthada.Domain.Entities.Users", b =>
+            modelBuilder.Entity("Marthada.Domain.Entities.User", b =>
                 {
                     b.Property<int>("IdUser")
                         .ValueGeneratedOnAdd()
@@ -124,18 +124,18 @@ namespace Infrastructures.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
-            modelBuilder.Entity("Marthada.Domain.Entities.Products", b =>
+            modelBuilder.Entity("Marthada.Domain.Entities.Product", b =>
                 {
-                    b.HasOne("Marthada.Domain.Entities.Categories", "Categories")
+                    b.HasOne("Marthada.Domain.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("FkCategory")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Categories");
+                    b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("Marthada.Domain.Entities.Categories", b =>
+            modelBuilder.Entity("Marthada.Domain.Entities.Category", b =>
                 {
                     b.Navigation("Products");
                 });

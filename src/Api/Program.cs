@@ -1,4 +1,10 @@
+using Marthada.Api.Services.Products.Commands;
+using Marthada.Api.Services.Products.Queries;
+using Marthada.Domain.Interfaces.Repositories;
+using Marthada.Domain.Interfaces.Services.Commands;
+using Marthada.Domain.Interfaces.Services.Queries;
 using Marthada.Infrastructures.Data;
+using Marthada.Infrastructures.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +27,11 @@ builder.Services.AddDbContext<MarthadaDbContext>(
         ); 
     }
 );
+
+// Scopeds
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductCommands, ProductCommands>();
+builder.Services.AddScoped<IProductQueries, ProductQueries>();
 
 var app = builder.Build();
 

@@ -29,12 +29,14 @@ public sealed class ProductCommands : IProductCommands
             
         await _product.CreateAsync(product, cancellationToken);
 
+        // var productCreated = await _product.GetByNameAsync(request.Name, cancellationToken);
+
         return product;
     }
 
     public async Task<Product?> Update(int id, UpdateProductRequest request, CancellationToken cancellationToken)
     {
-        var exists = await _product.GetByNameAsync(request.Name, cancellationToken);
+        var exists = await _product.GetByIdAsync(id, cancellationToken);
 
         if (exists == null)
         {
@@ -50,13 +52,14 @@ public sealed class ProductCommands : IProductCommands
             request.PromotionalPrice
         );
 
-        _product.Update(exists);
+        await _product.Update(exists, cancellationToken);
 
         return exists;
     }
 
     public async Task<bool> Delete(int id, CancellationToken cancellationToken)
     {
+        Console.WriteLine("Aquii");
         var exists = await _product.GetByIdAsync(id, cancellationToken);
 
         if (exists == null)
@@ -64,7 +67,7 @@ public sealed class ProductCommands : IProductCommands
             return false;
         }
 
-        _product.Delete(exists);
+        await _product.Delete(exists, cancellationToken);
 
         return true;
     }

@@ -1,4 +1,3 @@
-using Marthada.Domain.DTOs.Requests;
 using Marthada.Domain.Entities;
 
 namespace Marthada.Domain.Interfaces.Services.Queries;

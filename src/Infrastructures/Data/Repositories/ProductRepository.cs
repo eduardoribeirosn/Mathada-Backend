@@ -19,12 +19,22 @@ public sealed class ProductRepository : IProductRepository
     public async Task<Product?> GetByNameAsync(string name, CancellationToken cancellationToken = default) =>
         await _context.Products.FirstOrDefaultAsync(p => p.Name == name, cancellationToken);
 
-    public async Task CreateAsync(Product product, CancellationToken cancellationToken = default) =>
+    public async Task CreateAsync(Product product, CancellationToken cancellationToken = default)
+    {
         await _context.Products.AddAsync(product, cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
+        // await _unitOfWork.SaveChangesAsync(); Esse é para salvar mais de uma alteração por vez
+    }
 
-    public void Update(Product product) =>
+    public async Task Update(Product product, CancellationToken cancellationToken = default)
+    {
         _context.Products.Update(product);
+        await _context.SaveChangesAsync(cancellationToken);
+    }
 
-    public void Delete(Product product) =>
+    public async Task Delete(Product product, CancellationToken cancellationToken = default)
+    {
         _context.Products.Remove(product);
+        await _context.SaveChangesAsync(cancellationToken);
+    }
 }
