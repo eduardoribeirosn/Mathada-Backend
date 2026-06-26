@@ -59,7 +59,6 @@ public sealed class ProductCommands : IProductCommands
 
     public async Task<bool> Delete(int id, CancellationToken cancellationToken)
     {
-        Console.WriteLine("Aquii");
         var exists = await _product.GetByIdAsync(id, cancellationToken);
 
         if (exists == null)

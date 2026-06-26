@@ -1,5 +1,6 @@
 using Marthada.Api.Services.Products.Commands;
 using Marthada.Api.Services.Products.Queries;
+using Marthada.Api.Services.Users.Commands;
 using Marthada.Domain.Interfaces.Repositories;
 using Marthada.Domain.Interfaces.Services.Commands;
 using Marthada.Domain.Interfaces.Services.Queries;
@@ -32,6 +33,8 @@ builder.Services.AddDbContext<MarthadaDbContext>(
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductCommands, ProductCommands>();
 builder.Services.AddScoped<IProductQueries, ProductQueries>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserCommands, UserCommands>();
 
 var app = builder.Build();
 
