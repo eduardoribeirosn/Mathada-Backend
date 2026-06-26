@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Marthada.Api.Controllers;
 
 [ApiController]
-[Route("auth")]
+[Route("api/v1/auth")]
 public sealed class UserController : ControllerBase
 {
     private readonly IUserCommands _auth;

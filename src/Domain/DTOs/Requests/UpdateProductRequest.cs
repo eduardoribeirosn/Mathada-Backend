@@ -6,5 +6,5 @@ public sealed record UpdateProductRequest (
     decimal Price,
     string Image,
     decimal PromotionalPrice,
-    int FkCategory
+    int CategoryIds
 );

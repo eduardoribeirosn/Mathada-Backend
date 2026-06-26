@@ -24,7 +24,7 @@ public sealed class ProductCommands : IProductCommands
             request.Description, 
             request.Price, 
             request.Image, 
-            request.FkCategory, 
+            request.CategoryIds, 
             request.PromotionalPrice);
             
         await _product.CreateAsync(product, cancellationToken);
@@ -48,7 +48,7 @@ public sealed class ProductCommands : IProductCommands
             request.Description, 
             request.Price, 
             request.Image, 
-            request.FkCategory,
+            request.CategoryIds,
             request.PromotionalPrice
         );
 
