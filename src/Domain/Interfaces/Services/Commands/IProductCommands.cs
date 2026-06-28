@@ -8,4 +8,6 @@ public interface IProductCommands
     Task<Product?> CreateAsync(CreateProductRequest request, CancellationToken cancellationToken);
     Task<Product?> Update(int id, UpdateProductRequest request, CancellationToken cancellationToken);
     Task<bool> Delete(int id, CancellationToken cancellationToken);
+    Task<bool> ToggleActive(int id, CancellationToken cancellationToken);
+    Task<bool> TogglePromotinalActive(int id, CancellationToken cancellationToken);
 }

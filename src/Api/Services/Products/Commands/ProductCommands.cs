@@ -71,5 +71,49 @@ public sealed class ProductCommands : IProductCommands
         return true;
     }
 
+    public async Task<bool> ToggleActive(int id, CancellationToken cancellationToken)
+    {
+        var exists = await _product.GetByIdAsync(id, cancellationToken);
+
+        if (exists == null)
+        {
+            return false;
+        }
+
+        if (exists.IsActive)
+        {
+            exists.Deactivate();
+        } else
+        {
+            exists.Activate();
+        }
+
+        await _product.Update(exists, cancellationToken);
+
+        return true;
+    }
+
+    public async Task<bool> TogglePromotinalActive(int id, CancellationToken cancellationToken)
+    {
+        var exists = await _product.GetByIdAsync(id, cancellationToken);
+
+        if (exists == null)
+        {
+            return false;
+        }
+
+        if (exists.PromotionalIsActive)
+        {
+            exists.DeactivatePromotional();
+        } else
+        {
+            exists.ActivatePromotional();
+        }
+
+        await _product.Update(exists, cancellationToken);
+
+        return true;
+    }
+
     
 }

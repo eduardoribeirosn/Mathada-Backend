@@ -50,4 +50,24 @@ public sealed class Product
         PromotionalIsActive = promotionalPrice != 0;
         FkCategory = fkCategory;
     }
+
+    public void Activate()
+    {
+        IsActive = true;
+    }
+
+    public void Deactivate()
+    {
+        IsActive = false;
+    }
+
+    public void ActivatePromotional()
+    {
+        PromotionalIsActive = true;
+    }
+
+    public void DeactivatePromotional()
+    {
+        PromotionalIsActive = false;
+    }
 }

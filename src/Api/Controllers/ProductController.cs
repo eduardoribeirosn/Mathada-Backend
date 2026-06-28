@@ -113,4 +113,34 @@ public sealed class ProductController : ControllerBase
 
         return NoContent();
     }
+
+    [HttpPut("IsActive/{id}")]
+    [ProducesResponseType(204)]
+    [ProducesResponseType(404)]
+    public async Task<IActionResult> ToggleActive(int id, CancellationToken ct)
+    {
+        var result = await _productCommands.ToggleActive(id, ct);
+
+        if (!result)
+        {
+            return NotFound();
+        }
+
+        return NoContent();
+    }
+
+    [HttpPut("PromotionalIsActive/{id}")]
+    [ProducesResponseType(204)]
+    [ProducesResponseType(404)]
+    public async Task<IActionResult> TogglePromotinalActive(int id, CancellationToken ct)
+    {
+        var result = await _productCommands.TogglePromotinalActive(id, ct);
+
+        if (!result)
+        {
+            return NotFound();
+        }
+
+        return NoContent();
+    }
 }
