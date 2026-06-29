@@ -5,4 +5,5 @@ namespace Marthada.Domain.Interfaces.Services.Queries;
 public interface ICategoryQueries
 {
     Task<List<Category>> GetAllAsync(CancellationToken cancellationToken);
+    Task<Category?> GetByIdAsync(int id, CancellationToken cancellationToken);
 }

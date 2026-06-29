@@ -46,8 +46,8 @@ public sealed class ProductCommands : IProductCommands
         exists.Update(
             request.Name, 
             request.Description, 
-            request.Price, 
-            request.Image, 
+            request.Price,
+            request.Image ?? exists.Image, 
             request.CategoryIds,
             request.PromotionalPrice
         );

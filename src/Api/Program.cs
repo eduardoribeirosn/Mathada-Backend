@@ -1,3 +1,4 @@
+using Marthada.Api.Services.Categories.Commands;
 using Marthada.Api.Services.Categories.Queries;
 using Marthada.Api.Services.Products.Commands;
 using Marthada.Api.Services.Products.Queries;
@@ -37,6 +38,7 @@ builder.Services.AddScoped<IProductQueries, ProductQueries>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserCommands, UserCommands>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICategoryCommands, CategoryCommands>();
 builder.Services.AddScoped<ICategoryQueries, CategoryQueries>();
 
 // CORS
@@ -67,5 +69,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseStaticFiles();
 
 app.Run();

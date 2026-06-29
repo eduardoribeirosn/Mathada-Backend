@@ -12,4 +12,7 @@ public sealed class CategoryQueries : ICategoryQueries
 
     public async Task<List<Category>> GetAllAsync(CancellationToken cancellationToken) =>
         await _categoryRepository.GetAllAsync(cancellationToken);
+
+    public async Task<Category?> GetByIdAsync(int id, CancellationToken cancellationToken) =>
+        await _categoryRepository.GetByIdAsync(id, cancellationToken);
 }

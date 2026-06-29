@@ -4,7 +4,7 @@ public sealed record UpdateProductRequest (
     string Name,
     string Description,
     decimal Price,
-    string Image,
+    string? Image,
     decimal PromotionalPrice,
     int CategoryIds
 );
